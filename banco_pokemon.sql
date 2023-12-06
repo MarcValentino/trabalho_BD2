@@ -40,7 +40,8 @@ create table if not exists instanciaPokemon (
 	id_especie int,
 	id_treinador int,
 	nome_dado varchar(255),
-	exp_atual int,
+	xp_atual int,
+    escolhido boolean default false,
 	hp_atual int,
 	ataque_atual int,
 	defesa_atual int,
@@ -109,5 +110,3 @@ create table movimentoEfeito (
 	foreign key (id_movimento) references movimento(id),
 	foreign key (id_efeito) references efeito(id)
 );
-
---como fazer o loadout que eu fiquei na dúvida

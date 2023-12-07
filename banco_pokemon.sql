@@ -73,7 +73,7 @@ create table if not exists especieTipo (
 create table if not exists item (
 	id serial primary key,
 	nome varchar(255),
-	tipo_item varchar(255), -- pensando em matar essa coluna
+	tipo_item varchar(255),
 	preco int,
 	descricao text
 );
@@ -91,7 +91,6 @@ create table if not exists efeito (
 	id serial primary key,
 	nome varchar(255),
 	descricao text
-	-- tem que adicionar mais coisa aqui
 );
 
 create table instanciaEfeito (

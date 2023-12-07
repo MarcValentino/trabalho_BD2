@@ -93,7 +93,7 @@ create table if not exists efeito (
 	descricao text
 );
 
-create table instanciaEfeito (
+create table if not exists instanciaEfeito (
 	id serial primary key,
 	id_instancia int,
 	id_efeito int,
@@ -102,10 +102,23 @@ create table instanciaEfeito (
 	foreign key (id_efeito) references efeito(id)
 );
 
-create table movimentoEfeito (
+create table if not exists movimentoEfeito (
 	id serial primary key,
 	id_movimento int,
 	id_efeito int,
 	foreign key (id_movimento) references movimento(id),
 	foreign key (id_efeito) references efeito(id)
+);
+
+create table if not exists insignia (
+	id serial primary key,
+	nome varchar(255)
+);
+
+create table if not exists instanciaInsignia (
+	id serial primary key,
+	id_insignia int,
+	id_treinador int,
+	foreign key (id_insignia) references insignia(id),
+	foreign key (id_treinador) references treinador(id)
 );

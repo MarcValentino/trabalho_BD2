@@ -1,4 +1,3 @@
--- Inserir dados fictícios na tabela especiePokemon para a Primeira Geração
 INSERT INTO especiePokemon (nome, hp_base, ataque_base, defesa_base) VALUES
     ('Bulbasaur', 45, 49, 49),
     ('Ivysaur', 60, 62, 63),

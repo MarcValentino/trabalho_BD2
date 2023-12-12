@@ -122,3 +122,12 @@ create table if not exists instanciaInsignia (
 	foreign key (id_insignia) references insignia(id),
 	foreign key (id_treinador) references treinador(id)
 );
+
+
+create table if not exists instanciaMovimento (
+    id serial primary key,
+    id_movimento int,
+    id_instancia int,
+    foreign key (id_movimento) references movimento(id),
+    foreign key (id_instancia) references instanciaPokemon(id)
+);

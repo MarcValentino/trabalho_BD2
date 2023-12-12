@@ -1,16 +1,13 @@
-CREATE OR REPLACE FUNCTION atacar(id_instancia_atacante INT, id_instancia_defensor INT, id_movimento INT)
+CREATE OR REPLACE FUNCTION usarItem(id_treinador_uso INT, id_item_usar INT)
 RETURNS VOID AS $$
-DECLARE
-    dano INT;
 BEGIN
-    SELECT dano_base INTO dano 
-    FROM movimento 
-    WHERE id = id_movimento;
+    UPDATE itemTreinador
+    SET quantidade = quantidade - 1
+    WHERE id_treinador = id_treinador_uso AND id_item = id_item_usar AND quantidade > 0;
 
-    UPDATE instanciaPokemon
-    SET hp_atual = GREATEST(hp_atual - dano, 0)
-    WHERE id = id_instancia_defensor;
-
-    -- Adicione aqui lógica adicional se necessário.
+    IF (SELECT quantidade FROM itemTreinador WHERE id_treinador = id_treinador_uso AND id_item = id_item_usar) = 0 THEN
+        DELETE FROM itemTreinador
+        WHERE id_treinador = id_treinador_uso AND id_item = id_item_usar;
+    END IF;
 END;
 $$ LANGUAGE plpgsql;

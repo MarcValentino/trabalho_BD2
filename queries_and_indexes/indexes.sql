@@ -13,9 +13,6 @@ ON instanciaPokemon using hash (id_treinador);
 CREATE INDEX idx_instanciaPokemon_id_especie
 ON instanciaPokemon using hash (id_especie);
 
-CREATE INDEX idx_especiePokemon_id
-ON especiePokemon using hash (id);
-
 CREATE INDEX idx_itemTreinador_id_treinador
 ON itemTreinador using hash (id_treinador);
 

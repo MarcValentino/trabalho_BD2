@@ -25,9 +25,6 @@ BEGIN
             WHERE id_instancia = id_instancia_atacante;
         END IF;
 
-        -- RAISE EXCEPTION 'O pokemon esta com efeito e não pode atacar';
-
-
     ELSE
         SELECT dano_base INTO dano 
         FROM movimento 
